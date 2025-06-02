@@ -4,39 +4,105 @@
   <meta charset="UTF-8">
   <title>Happy Birthday AkkaMaa</title>
   <style>
-    #gift, #music {
-      display: none;
-      margin-top: 20px;
-    }
-    #gift img {
-      max-width: 400px;
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #faf6f0;
+      min-height: 100vh;
     }
     #getGiftBtn {
       font-size: 1.2em;
-      padding: 10px 30px;
-      margin-top: 40px;
+      padding: 12px 36px;
+      margin: 80px auto 0 auto;
+      display: block;
       cursor: pointer;
+    }
+    /* Modal styles */
+    #modalBg {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7);
+      z-index: 10;
+      justify-content: center;
+      align-items: center;
+    }
+    #modal {
+      background: #fffbe7;
+      padding: 32px 24px 24px 24px;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+      max-width: 95vw;
+      max-height: 95vh;
+      text-align: center;
+      z-index: 20;
+      position: relative;
+      animation: modalIn 0.4s;
+    }
+    @keyframes modalIn {
+      from { transform: scale(0.7) translateY(80px); opacity: 0;}
+      to { transform: scale(1) translateY(0); opacity: 1;}
+    }
+    #modal img {
+      max-width: 80vw;
+      max-height: 60vh;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.14);
+    }
+    #closeBtn {
+      margin-top: 18px;
+      font-size: 1em;
+      padding: 7px 30px;
+      background: #f8d478;
+      color: #644c00;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      #modal img { max-width: 95vw; }
+      #modal { padding: 10vw 2vw 2vw 2vw; }
     }
   </style>
 </head>
 <body>
-  <h1>Happy Birthday AkkaMaa!</h1>
+  <h1 style="text-align:center; margin-top:40px;">Happy Birthday AkkaMaa!</h1>
   <button id="getGiftBtn">Click to get the gift from kutty valu 🎁</button>
-  <div id="gift">
-    <img src="AkkaMaa.jpg" alt="Happy Birthday AkkaMaa">
+
+  <!-- Modal Popup for Gift -->
+  <div id="modalBg">
+    <div id="modal">
+      <img src="AkkaMaa.jpg" alt="Happy Birthday AkkaMaa">
+      <br>
+      <audio id="music" src="birthday.mp3" controls autoplay style="width:90%;margin-top:12px;"></audio>
+      <br>
+      <button id="closeBtn">Close</button>
+    </div>
   </div>
-  <audio id="music" src="birthday.mp3"></audio>
 
   <script>
     const btn = document.getElementById('getGiftBtn');
-    const gift = document.getElementById('gift');
+    const modalBg = document.getElementById('modalBg');
     const music = document.getElementById('music');
+    const closeBtn = document.getElementById('closeBtn');
+
     btn.addEventListener('click', function() {
       alert('Click to get the gift from kutty valu 🎁');
-      gift.style.display = 'block';
-      music.style.display = 'block';
+      // Show modal popup with photo and music
+      modalBg.style.display = 'flex';
+      music.currentTime = 0;
       music.play();
       btn.style.display = 'none';
+    });
+
+    closeBtn.addEventListener('click', function() {
+      modalBg.style.display = 'none';
+      music.pause();
+      music.currentTime = 0;
     });
   </script>
 </body>
