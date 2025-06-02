@@ -3,82 +3,117 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Birthday AkkaMaa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
       margin: 0;
       padding: 0;
       background: #faf6f0;
       min-height: 100vh;
     }
+    h1 {
+      text-align: center;
+      margin: 36px 8vw 0 8vw;
+      font-size: 2em;
+    }
     #getGiftBtn {
-      font-size: 1.2em;
-      padding: 12px 36px;
-      margin: 80px auto 0 auto;
+      font-size: 1.15em;
+      padding: 13px 8vw;
+      margin: 60px auto 0 auto;
       display: block;
       cursor: pointer;
+      border: none;
+      background: #ffd86b;
+      color: #644c00;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: background 0.2s;
     }
-    /* Modal styles */
+    #getGiftBtn:active {
+      background: #ffbc00;
+    }
+    /* Modal overlay */
     #modalBg {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.77);
       z-index: 10;
       justify-content: center;
       align-items: center;
     }
+    /* Modal itself */
     #modal {
       background: #fffbe7;
-      padding: 32px 24px 24px 24px;
+      padding: 6vw 2vw 4vw 2vw;
       border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
       max-width: 95vw;
-      max-height: 95vh;
+      width: 98vw;
+      max-height: 92vh;
       text-align: center;
-      z-index: 20;
       position: relative;
       animation: modalIn 0.4s;
+      overflow: auto;
     }
     @keyframes modalIn {
       from { transform: scale(0.7) translateY(80px); opacity: 0;}
       to { transform: scale(1) translateY(0); opacity: 1;}
     }
     #modal img {
-      max-width: 80vw;
-      max-height: 60vh;
+      width: 86vw;
+      max-width: 370px;
+      height: auto;
+      max-height: 44vh;
       border-radius: 12px;
       margin-bottom: 12px;
       box-shadow: 0 2px 16px rgba(0,0,0,0.14);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #modal audio {
+      width: 85vw;
+      max-width: 380px;
+      margin: 8px auto 0 auto;
+      display: block;
     }
     #closeBtn {
       margin-top: 18px;
-      font-size: 1em;
-      padding: 7px 30px;
+      font-size: 1.07em;
+      padding: 10px 32px;
       background: #f8d478;
       color: #644c00;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       font-weight: bold;
+      display: inline-block;
     }
-    @media (max-width: 600px) {
-      #modal img { max-width: 95vw; }
-      #modal { padding: 10vw 2vw 2vw 2vw; }
+    #closeBtn:active {
+      background: #ffd86b;
+    }
+    @media (max-width: 400px) {
+      h1 { font-size: 1.15em; margin-top: 24px;}
+      #modal img { width: 97vw; max-width: 99vw; }
+      #modal { padding: 3vw 0.5vw 3vw 0.5vw; }
+      #getGiftBtn { font-size: 1em; padding: 12px 2vw; }
+      #closeBtn { font-size: 1em; padding: 8px 20px; }
+      #modal audio { width: 97vw; }
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align:center; margin-top:40px;">Happy Birthday AkkaMaa!</h1>
+  <h1>Happy Birthday AkkaMaa!</h1>
   <button id="getGiftBtn">Click to get the gift from kutty valu 🎁</button>
 
   <!-- Modal Popup for Gift -->
   <div id="modalBg">
     <div id="modal">
       <img src="AkkaMaa.jpg" alt="Happy Birthday AkkaMaa">
-      <br>
-      <audio id="music" src="birthday.mp3" controls autoplay style="width:90%;margin-top:12px;"></audio>
+      <audio id="music" src="birthday.mp3" controls autoplay></audio>
       <br>
       <button id="closeBtn">Close</button>
     </div>
@@ -92,8 +127,8 @@
 
     btn.addEventListener('click', function() {
       alert('Click to get the gift from kutty valu 🎁');
-      // Show modal popup with photo and music
       modalBg.style.display = 'flex';
+      // Reset and play music
       music.currentTime = 0;
       music.play();
       btn.style.display = 'none';
@@ -103,6 +138,15 @@
       modalBg.style.display = 'none';
       music.pause();
       music.currentTime = 0;
+    });
+
+    // Allow closing modal by tapping outside (mobile-friendly)
+    modalBg.addEventListener('click', function(e) {
+      if (e.target === modalBg) {
+        modalBg.style.display = 'none';
+        music.pause();
+        music.currentTime = 0;
+      }
     });
   </script>
 </body>
