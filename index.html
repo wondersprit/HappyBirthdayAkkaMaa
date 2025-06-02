@@ -3,14 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Birthday AkkaMaa</title>
+  <style>
+    #gift, #music {
+      display: none;
+      margin-top: 20px;
+    }
+    #gift img {
+      max-width: 400px;
+    }
+    #getGiftBtn {
+      font-size: 1.2em;
+      padding: 10px 30px;
+      margin-top: 40px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <h1>Happy Birthday AkkaMaa!</h1>
-  <img src="AkkaMaa.jpg" alt="Happy Birthday AkkaMaa" width="400">
-  <br>
-  <audio controls>
-    <source src="birthday.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <button id="getGiftBtn">Click to get the gift from kutty valu 🎁</button>
+  <div id="gift">
+    <img src="AkkaMaa.jpg" alt="Happy Birthday AkkaMaa">
+  </div>
+  <audio id="music" src="birthday.mp3"></audio>
+
+  <script>
+    const btn = document.getElementById('getGiftBtn');
+    const gift = document.getElementById('gift');
+    const music = document.getElementById('music');
+    btn.addEventListener('click', function() {
+      alert('Click to get the gift from kutty valu 🎁');
+      gift.style.display = 'block';
+      music.style.display = 'block';
+      music.play();
+      btn.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
