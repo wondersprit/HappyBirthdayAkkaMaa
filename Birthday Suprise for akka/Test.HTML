@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gift for My Akka Maa 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #ffe6f0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #d63384;
+      text-align: center;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-top: 100px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    video {
+      width: 95%;
+      max-width: 720px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      margin-top: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="start">
+    <h1>🎁 Click to get the gift from your kutty valu 💝</h1>
+    <button onclick="showGift()">Open Gift</button>
+  </div>
+
+  <div id="gift" class="hidden">
+    <h1>💖 Happy Birthday Akka Maa 💖</h1>
+    <p>With all my heart, from your thambi kutty valu 🥰</p>
+    <video controls autoplay loop>
+      <source src="Akka Maa.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    function showGift() {
+      document.getElementById('start').style.display = 'none';
+      document.getElementById('gift').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
