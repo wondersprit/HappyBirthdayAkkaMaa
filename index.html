@@ -148,18 +148,19 @@
       btn.style.display = 'none';
     });
 
-    closeBtn.addEventListener('click', function() {
+    function hideGift() {
       modalBg.style.display = 'none';
       music.pause();
       music.currentTime = 0;
-    });
+      btn.style.display = 'block'; // Show the button again
+    }
+
+    closeBtn.addEventListener('click', hideGift);
 
     // Allow closing modal by tapping outside (mobile-friendly)
     modalBg.addEventListener('click', function(e) {
       if (e.target === modalBg) {
-        modalBg.style.display = 'none';
-        music.pause();
-        music.currentTime = 0;
+        hideGift();
       }
     });
   </script>
