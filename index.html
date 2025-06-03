@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Happy Birthday Periya Valu Akka Maa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Warm handwritten fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
@@ -83,6 +82,7 @@
       animation: bounce 2.2s infinite, glow 1.5s infinite;
       z-index: 2;
       position: relative;
+      opacity: 1;
     }
     #getGiftBtn:active {
       background: #ffbc00;
@@ -99,7 +99,6 @@
       50% { box-shadow: 0 0 38px 14px #ffecb399; }
       100% { box-shadow: 0 0 18px 4px #ffd86b88; }
     }
-    /* --- Heartfelt Modal --- */
     #heartfeltModalBg {
       display: flex;
       position: fixed;
@@ -178,7 +177,6 @@
       background: linear-gradient(90deg, #ffe1f7 20%, #f9c1e4 100%);
       color: #f45aac;
     }
-    /* Gift Modal */
     #giftModalBg {
       display: none;
       position: fixed;
@@ -236,7 +234,6 @@
       background: linear-gradient(90deg, #f9c1e4 40%, #ffe1f7 100%);
       color: #f45aac;
     }
-    /* Confetti canvas on top */
     #confetti-canvas {
       position: fixed;
       inset: 0;
@@ -267,14 +264,15 @@
   <div id="fireflies"></div>
   <!-- Main Message Box -->
   <div class="message-box" id="mainMsgBox">
-  <div class="message">
-  Happy Birthday Periya Valu akka maa<br>
-  nee intha kutty valu ku romba romba special<br>
-  First akka and best akka forever<br>
-  Thanks for made my life beautiful DM akka<br>
-  Love you forever<br>
-  from kutty valu
-</div>
+    <div class="message">
+      Happy Birthday Periya Valu akka maa<br>
+      nee intha kutty valu ku romba romba special<br>
+      First akka and best akka forever<br>
+      Thanks for made my life beautiful DM akka<br>
+      Love you forever<br>
+      from kutty valu
+    </div>
+  </div>
   <!-- Gift Button -->
   <button id="getGiftBtn">Click to get your birthday surprise from kutty valu 🎁</button>
   <!-- Gift Modal -->
@@ -330,11 +328,12 @@ Naa romba romba lucky nee akka va kadaichathuku. ❤️`;
     // After heartfelt, show fireflies, main message, and gift button
     document.getElementById('nextBtn').onclick = function() {
       document.getElementById('heartfeltModalBg').style.display = 'none';
-      // Show fireflies
       document.querySelectorAll('.firefly').forEach(ff => ff.style.display = 'block');
-      // Show main message and gift button
       document.getElementById('mainMsgBox').style.display = 'block';
       document.getElementById('getGiftBtn').style.display = 'block';
+      // Make sure opacity is reset (in case of reload/bug)
+      document.getElementById('mainMsgBox').style.opacity = 1;
+      document.getElementById('getGiftBtn').style.opacity = 1;
     };
 
     // Gift modal logic
@@ -364,7 +363,6 @@ Naa romba romba lucky nee akka va kadaichathuku. ❤️`;
       giftBtn.style.opacity = 1;
       giftBtn.disabled = false;
     };
-    // Clicking outside the gift modal closes it
     giftModalBg.onclick = function(e) {
       if(e.target===giftModalBg) document.getElementById('giftCloseBtn').onclick();
     };
