@@ -65,39 +65,56 @@
       text-shadow: 0 1px 8px #604c00cc;
       letter-spacing: 0.5px;
     }
+    /* New floating, modern, glowing birthday button */
     #getGiftBtn {
       display: none;
-      margin: 42px auto 0 auto;
-      font-size: 2em;
-      padding: 22px 8vw;
-      background: #ffd86b;
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 32px;
+      margin: 0;
+      width: 92vw;
+      max-width: 410px;
+      font-size: 1.35em;
+      padding: 20px 0;
+      background: linear-gradient(90deg, #ffe884 20%, #ffb6b9 80%);
       color: #644c00;
       border: none;
-      border-radius: 22px;
+      border-radius: 25px;
       font-weight: bold;
-      box-shadow: 0 4px 22px #ffedb633, 0 2px 10px #000a;
+      box-shadow: 0 2px 24px #ffc64b88, 0 6px 44px #ffb6b966, 0 2px 10px #000a;
       cursor: pointer;
       letter-spacing: 1px;
-      transition: background 0.2s, transform 0.1s;
-      animation: bounce 2.2s infinite, glow 1.5s infinite;
-      z-index: 2;
-      position: relative;
-      opacity: 1;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.25s, opacity 0.4s;
+      z-index: 3001;
+      opacity: 0;
+      animation: none;
     }
     #getGiftBtn:active {
-      background: #ffbc00;
-      transform: scale(0.98);
+      background: linear-gradient(90deg, #ffdf6b 20%, #ffa3a7 80%);
+      transform: translateX(-50%) scale(0.97);
+      box-shadow: 0 2px 10px #ffc64b44;
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0);}
-      30% { transform: translateY(-18px);}
-      50% { transform: translateY(-7px);}
-      70% { transform: translateY(-13px);}
+    .btn-glow {
+      animation: btnPopIn 1.2s cubic-bezier(.23,1.29,.55,.99) forwards, btnGlow 1.85s infinite alternate;
     }
-    @keyframes glow {
-      0% { box-shadow: 0 0 18px 4px #ffd86b88; }
-      50% { box-shadow: 0 0 38px 14px #ffecb399; }
-      100% { box-shadow: 0 0 18px 4px #ffd86b88; }
+    @keyframes btnPopIn {
+      from { opacity: 0; transform: translateX(-50%) scale(0.85);}
+      70% { opacity: 1; transform: translateX(-50%) scale(1.09);}
+      to { opacity: 1; transform: translateX(-50%) scale(1);}
+    }
+    @keyframes btnGlow {
+      from { box-shadow: 0 2px 24px #ffc64b88, 0 6px 44px #ffb6b966, 0 2px 10px #000a; }
+      to { box-shadow: 0 2px 44px 12px #fff7c9cc, 0 6px 70px 20px #ffb6b977, 0 2px 10px #000a; }
+    }
+    @media (max-width: 650px) {
+      #getGiftBtn {
+        width: 97vw;
+        max-width: 97vw;
+        font-size: 1em;
+        padding: 16px 0;
+        bottom: 14px;
+      }
     }
     #heartfeltModalBg {
       display: flex;
@@ -330,10 +347,20 @@ Naa romba romba lucky nee akka va kadaichathuku. ❤️❤️`;
       document.getElementById('heartfeltModalBg').style.display = 'none';
       document.querySelectorAll('.firefly').forEach(ff => ff.style.display = 'block');
       document.getElementById('mainMsgBox').style.display = 'block';
-      document.getElementById('getGiftBtn').style.display = 'block';
+
+      // Animate the button in a modern floating way!
+      const btn = document.getElementById('getGiftBtn');
+      btn.style.display = 'block';
+      btn.classList.remove('btn-glow');
+      btn.style.opacity = 0;
+      setTimeout(() => {
+        btn.classList.add('btn-glow');
+        btn.style.opacity = 1;
+      }, 80);
+
       // Make sure opacity is reset (in case of reload/bug)
       document.getElementById('mainMsgBox').style.opacity = 1;
-      document.getElementById('getGiftBtn').style.opacity = 1;
+      btn.style.opacity = 1;
     };
 
     // Gift modal logic
