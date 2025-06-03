@@ -8,23 +8,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       min-height: 100vh;
       background: radial-gradient(ellipse at bottom, #232526 0%, #1a1a1a 100%);
-      overflow-x: hidden;
-      position: relative;
+      overflow-x: hidden; position: relative;
     }
     .firefly {
       position: absolute;
       border-radius: 50%;
-      width: 12px;
-      height: 12px;
+      width: 12px; height: 12px;
       background: radial-gradient(circle, #fffbe7 0%, #ffe37a 60%, transparent 100%);
       box-shadow: 0 0 20px 5px #ffe37a88, 0 0 80px 20px #ffecb399;
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 1;
+      opacity: 0.7; pointer-events: none; z-index: 1;
       animation: fireflymove 11s linear infinite;
       display: none;
     }
@@ -35,8 +30,7 @@
       100% { transform: translateY(-350px) translateX(70px) scale(0.7); opacity: 0;}
     }
     .message-box {
-      position: relative;
-      z-index: 2;
+      position: relative; z-index: 2;
       max-width: 95vw;
       margin: 45px auto 48px auto;
       padding: 40px 6vw 36px 6vw;
@@ -105,7 +99,6 @@
       50% { box-shadow: 0 0 38px 14px #ffecb399; }
       100% { box-shadow: 0 0 18px 4px #ffd86b88; }
     }
-
     /* --- Heartfelt Modal --- */
     #heartfeltModalBg {
       display: flex;
@@ -185,7 +178,6 @@
       background: linear-gradient(90deg, #ffe1f7 20%, #f9c1e4 100%);
       color: #f45aac;
     }
-
     /* Gift Modal */
     #giftModalBg {
       display: none;
@@ -255,15 +247,9 @@
       display: none;
     }
     @media (max-width: 600px) {
-      .message {
-        font-size: 1.19em;
-      }
-      #heartfeltMsgText {
-        font-size: 1.09em;
-      }
-      #giftModal, #heartfeltModal {
-        padding: 17vw 2vw 10vw 2vw;
-      }
+      .message { font-size: 1.19em; }
+      #heartfeltMsgText { font-size: 1.09em; }
+      #giftModal, #heartfeltModal { padding: 17vw 2vw 10vw 2vw; }
     }
   </style>
 </head>
@@ -277,10 +263,8 @@
       <button id="nextBtn">Next</button>
     </div>
   </div>
-
   <!-- Fireflies -->
   <div id="fireflies"></div>
-
   <!-- Main Message Box -->
   <div class="message-box" id="mainMsgBox">
     <div class="message">
@@ -294,10 +278,8 @@
     </div>
     <div class="signature">- with all love,<br>kutty valu</div>
   </div>
-
   <!-- Gift Button -->
   <button id="getGiftBtn">Click to get your birthday surprise from kutty valu 🎁</button>
-
   <!-- Gift Modal -->
   <div id="giftModalBg">
     <div id="giftModal">
@@ -308,7 +290,6 @@
     </div>
   </div>
   <canvas id="confetti-canvas"></canvas>
-
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
     // Heartfelt message to type out
@@ -325,7 +306,6 @@ Naa romba romba lucky nee akka va kadaichathuku. ❤️`;
     const heartfeltMsgText = document.getElementById('heartfeltMsgText');
     const heartfeltHeart = document.getElementById('heartfeltHeart');
     let char = 0;
-
     function typeWriter() {
       if (char < heartfeltMsg.length) {
         heartfeltMsgText.innerHTML += heartfeltMsg.charAt(char) === "\n" ? "<br>" : heartfeltMsg.charAt(char);
@@ -337,21 +317,8 @@ Naa romba romba lucky nee akka va kadaichathuku. ❤️`;
     }
     typeWriter();
 
-    // After heartfelt, show fireflies, main message, and gift button
-    document.getElementById('nextBtn').onclick = function() {
-      document.getElementById('heartfeltModalBg').style.display = 'none';
-      // Show fireflies
-      for(const ff of document.querySelectorAll('.firefly')) ff.style.display = '';
-      // Show main message and gift button
-      document.getElementById('mainMsgBox').style.display = '';
-      document.getElementById('getGiftBtn').style.display = '';
-    };
-
-    // --- Fireflies code (initially hidden, appear after heartfelt) ---
-    function randomBetween(a, b) {
-      return a + Math.random() * (b - a);
-    }
-    // Make 18 fireflies
+    // Make fireflies (hidden at first)
+    function randomBetween(a, b) { return a + Math.random() * (b - a); }
     for(let i=0; i<18; i++) {
       let ff = document.createElement('div');
       ff.className = 'firefly';
@@ -359,45 +326,48 @@ Naa romba romba lucky nee akka va kadaichathuku. ❤️`;
       ff.style.top = randomBetween(15,88) + 'vh';
       ff.style.animationDuration = randomBetween(7,13) + 's';
       ff.style.animationDelay = randomBetween(0,9) + 's';
-      // Initially hidden, will be shown after heartfelt modal
       ff.style.display = 'none';
       document.getElementById('fireflies').appendChild(ff);
     }
+
+    // After heartfelt, show fireflies, main message, and gift button
+    document.getElementById('nextBtn').onclick = function() {
+      document.getElementById('heartfeltModalBg').style.display = 'none';
+      // Show fireflies
+      document.querySelectorAll('.firefly').forEach(ff => ff.style.display = 'block');
+      // Show main message and gift button
+      document.getElementById('mainMsgBox').style.display = 'block';
+      document.getElementById('getGiftBtn').style.display = 'block';
+    };
 
     // Gift modal logic
     const giftBtn = document.getElementById('getGiftBtn');
     const giftModalBg = document.getElementById('giftModalBg');
     const confettiCanvas = document.getElementById('confetti-canvas');
     const birthdayAudio = document.getElementById('birthdayAudio');
-
     giftBtn.onclick = function() {
       giftModalBg.style.display = 'flex';
       confettiCanvas.style.display = 'block';
-      // Play audio
       birthdayAudio.currentTime = 0;
       birthdayAudio.play();
-      // Confetti burst
       confetti.create(confettiCanvas, { resize: true })({
         particleCount: 170,
         spread: 130,
         origin: { y: 0.6 }
       });
-      // Fade out main stuff
       document.getElementById('mainMsgBox').style.opacity = 0.28;
       giftBtn.style.opacity = 0.18;
       giftBtn.disabled = true;
     };
-    // Close gift modal
     document.getElementById('giftCloseBtn').onclick = function() {
       giftModalBg.style.display = 'none';
       confettiCanvas.style.display = 'none';
       birthdayAudio.pause();
-      // Restore
       document.getElementById('mainMsgBox').style.opacity = 1;
       giftBtn.style.opacity = 1;
       giftBtn.disabled = false;
     };
-    // Click outside modal closes
+    // Clicking outside the gift modal closes it
     giftModalBg.onclick = function(e) {
       if(e.target===giftModalBg) document.getElementById('giftCloseBtn').onclick();
     };
