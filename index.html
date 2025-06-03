@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Happy Birthday Periya Valu Akka Maa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Handwritten Google Font for warmth -->
+  <!-- Warm handwritten fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
@@ -26,6 +26,7 @@
       pointer-events: none;
       z-index: 1;
       animation: fireflymove 11s linear infinite;
+      display: none;
     }
     @keyframes fireflymove {
       0% { transform: translateY(0) translateX(0) scale(1);}
@@ -43,13 +44,18 @@
       border-radius: 28px;
       box-shadow: 0 0 32px 5px #ffe37a15;
       text-align: center;
+      display: none;
+      animation: fadeInMain 1.1s;
+    }
+    @keyframes fadeInMain {
+      from { opacity: 0; transform: translateY(60px);}
+      to { opacity: 1; transform: translateY(0);}
     }
     .message {
       font-family: 'Pacifico', cursive;
       font-size: 2.3em;
-      color: #8e4585;
-      /* Deep violet for colourful, readable text */
-      text-shadow: 0 2px 12px #fff9, 0 0 18px #ffe37aaa;
+      color: #ffe37a;
+      text-shadow: 0 2px 12px #000a, 0 0 18px #ffe37aaa;
       letter-spacing: 1px;
       margin-bottom: 20px;
       min-height: 6em;
@@ -57,23 +63,6 @@
       line-height: 1.4;
       overflow: hidden;
       word-break: break-word;
-      transition: color 0.4s;
-    }
-    .highlight {
-      color: #c2185b; /* Berry Pink */
-      background: linear-gradient(90deg, #c2185b, #27c6c6);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientText 2s linear infinite alternate;
-    }
-    @keyframes gradientText {
-      0% {
-        background-position: 0% 50%;
-      }
-      100% {
-        background-position: 100% 50%;
-      }
     }
     .signature {
       font-family: 'Quicksand', sans-serif;
@@ -84,12 +73,12 @@
       letter-spacing: 0.5px;
     }
     #getGiftBtn {
-      display: block;
+      display: none;
       margin: 42px auto 0 auto;
       font-size: 2em;
       padding: 22px 8vw;
-      background: linear-gradient(90deg, #c2185b, #27c6c6);
-      color: #fff;
+      background: #ffd86b;
+      color: #644c00;
       border: none;
       border-radius: 22px;
       font-weight: bold;
@@ -102,7 +91,7 @@
       position: relative;
     }
     #getGiftBtn:active {
-      background: linear-gradient(90deg, #8e4585, #c2185b);
+      background: #ffbc00;
       transform: scale(0.98);
     }
     @keyframes bounce {
@@ -129,211 +118,152 @@
       background: radial-gradient(ellipse at center, #f9ccd5 70%, #fff2f9 100%);
       overflow: hidden;
       animation: fadeInBg 1s;
+      box-shadow: 0 0 160px 30px #ff89b7ee, 0 0 40px 8px #eabfff99;
     }
     @keyframes fadeInBg {
       from { opacity: 0;}
       to { opacity: 1;}
     }
     #heartfeltModal {
-      background: rgba(255,255,255,0.97);
+      background: rgba(255,255,255,0.98);
       border-radius: 42px;
-      box-shadow: 0 8px 38px #f9ccd5ee, 0 2px 22px #8e458544;
+      box-shadow: 0 0 48px 14px #ffbfe9cc, 0 2px 22px #8e458544, 0 0 80px 20px #ff69b466;
       padding: 48px 8vw 40px 8vw;
       max-width: 92vw;
       max-height: 90vh;
       text-align: center;
       position: relative;
       overflow: visible;
-      animation: popHeartfelt 0.7s cubic-bezier(.23,1.2,.67,1);
+      animation: popHeartfelt 0.7s cubic-bezier(.23,1.29,.55,.99);
     }
     @keyframes popHeartfelt {
-      from { transform: scale(0.72) translateY(80px); opacity: 0;}
-      65% { transform: scale(1.12) translateY(-12px);}
-      to { transform: scale(1) translateY(0); opacity: 1;}
-    }
-    .pink-sparkle, .pink-heart {
-      position: absolute;
-      pointer-events: none;
-      opacity: 0.9;
-      z-index: 10;
-      animation: sparkleFloat 3.8s infinite linear;
-    }
-    .pink-heart {
-      width: 22px; height: 22px;
-      background: radial-gradient(circle at 60% 30%, #ffb7c5 60%, #f9ccd5 100%);
-      clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);
-      box-shadow: 0 4px 18px 1px #ffb7c555;
-      animation: heartFloat 3.8s infinite linear;
-    }
-    @keyframes sparkleFloat {
-      0% { transform: translateY(0) scale(1);}
-      50% { opacity: 1; }
-      100% { transform: translateY(-70px) scale(1.18); opacity: 0.1;}
-    }
-    @keyframes heartFloat {
-      0% { transform: translateY(0) scale(1);}
-      60% { opacity: 1;}
-      100% { transform: translateY(-90px) scale(1.25); opacity: 0.11;}
+      0% { opacity: 0; transform: scale(0.7);}
+      80% { opacity: 1; transform: scale(1.04);}
+      100% { opacity: 1; transform: scale(1);}
     }
     #heartfeltMsgText {
       font-family: 'Pacifico', cursive;
       font-size: 2.1em;
       color: #8e4585;
-      margin-bottom: 15px;
+      text-shadow: 0 2px 15px #ff89b744, 0 0 22px #e0aaff88;
       min-height: 6em;
       white-space: pre-line;
-      line-height: 1.45;
-      overflow: hidden;
+      margin-bottom: 18px;
+      letter-spacing: 1.1px;
       word-break: break-word;
-      letter-spacing: 1px;
-      text-shadow: 0 2px 12px #fff9, 0 0 18px #f9ccd577;
-      transition: color 0.4s;
+      line-height: 1.5;
+      animation: fadeIn 1.2s;
     }
     #heartfeltHeart {
-      display: inline-block;
-      font-size: 2.6em;
-      margin-top: 10px;
-      color: #c2185b;
-      filter: drop-shadow(0 2px 13px #ffb7c5aa);
-      animation: heartBeat 1.3s infinite, heartGlow 2.8s infinite alternate;
-      vertical-align: middle;
+      font-size: 2.5em;
+      display: none;
+      margin-top: 16px;
+      color: #f45aac;
+      text-shadow: 0 0 18px #ffbbea, 0 0 52px #f45aac77;
+      animation: pulseHeart 1.2s infinite alternate;
     }
-    @keyframes heartBeat {
-      0%, 100% { transform: scale(1);}
-      25% { transform: scale(1.23);}
-      50% { transform: scale(1.07);}
-      75% { transform: scale(1.23);}
-    }
-    @keyframes heartGlow {
-      0% { text-shadow: 0 0 12px #ffb7c5, 0 0 18px #fff2f9; }
-      100% { text-shadow: 0 0 30px #c2185b, 0 0 32px #27c6c6; }
+    @keyframes pulseHeart {
+      0% { transform: scale(1);}
+      100% { transform: scale(1.18);}
     }
     #nextBtn {
-      display: none;
-      margin-top: 34px;
+      margin-top: 40px;
       font-size: 1.3em;
-      padding: 16px 48px;
-      background: linear-gradient(90deg, #c2185b 60%, #27c6c6 100%);
-      color: #fff;
-      border: none;
+      padding: 12px 32px;
       border-radius: 16px;
-      cursor: pointer;
+      border: none;
+      background: linear-gradient(90deg, #f9c1e4 40%, #ffe1f7 100%);
+      color: #8e4585;
+      box-shadow: 0 2px 16px #f9c1e4bb, 0 0px 3px #8e458566;
+      font-family: 'Quicksand', sans-serif;
       font-weight: bold;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 12px #c2185b31;
-      transition: filter 0.2s, background 0.2s;
-      animation: fadeInNext 1.2s;
-    }
-    @keyframes fadeInNext {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      cursor: pointer;
+      letter-spacing: 1.4px;
+      transition: background 0.2s, color 0.1s;
     }
     #nextBtn:active {
-      filter: brightness(0.94);
-      background: linear-gradient(90deg, #8e4585, #c2185b);
+      background: linear-gradient(90deg, #ffe1f7 20%, #f9c1e4 100%);
+      color: #f45aac;
     }
-    /* --- End Heartfelt Modal --- */
 
-    #modalBg {
+    /* Gift Modal */
+    #giftModalBg {
       display: none;
       position: fixed;
       inset: 0;
       width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.78);
-      z-index: 100;
+      z-index: 3000;
       justify-content: center;
       align-items: center;
+      background: rgba(40,10,50,0.49);
+      animation: fadeInGiftBg 0.7s;
     }
-    #modal {
-      background: #fffbe7;
-      padding: 5vw 2vw 3vw 2vw;
-      border-radius: 32px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.27);
-      max-width: 99vw;
-      width: 99vw;
-      max-height: 98vh;
+    @keyframes fadeInGiftBg {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    #giftModal {
+      background: #fffaf4;
+      border-radius: 36px;
+      box-shadow: 0 8px 38px #ffd6d6ee, 0 2px 22px #8e458544;
+      padding: 38px 5vw 32px 5vw;
+      max-width: 92vw;
+      max-height: 90vh;
       text-align: center;
       position: relative;
-      animation: modalIn 0.4s;
-      overflow: auto;
+      overflow: visible;
+      animation: popGift 0.8s cubic-bezier(.23,1.29,.55,.99);
     }
-    @keyframes modalIn {
-      from { transform: scale(0.7) translateY(80px); opacity: 0;}
-      to { transform: scale(1) translateY(0); opacity: 1;}
+    @keyframes popGift {
+      0% { opacity: 0; transform: scale(0.7);}
+      80% { opacity: 1; transform: scale(1.04);}
+      100% { opacity: 1; transform: scale(1);}
     }
-    #modal img {
-      width: 94vw;
-      max-width: 550px;
-      height: auto;
-      max-height: 60vh;
-      border-radius: 20px;
-      margin-bottom: 22px;
-      box-shadow: 0 2px 28px 2px #ffe37a80, 0 2px 28px rgba(0,0,0,0.14);
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      animation: popIn 0.7s cubic-bezier(.23,1.2,.67,1), float 3.5s ease-in-out infinite;
+    #giftImg {
+      width: 90vw; max-width: 410px;
+      border-radius: 28px;
+      box-shadow: 0 2px 24px #ffb2b2cc;
+      margin-bottom: 18px;
     }
-    @keyframes popIn {
-      0% { transform: scale(0.6) rotate(-10deg); opacity: 0; }
-      60% { transform: scale(1.15) rotate(6deg); opacity: 1; }
-      80% { transform: scale(0.98) rotate(-3deg);}
-      100% { transform: scale(1) rotate(0deg);}
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0);}
-      50% { transform: translateY(-18px);}
-    }
-    #modal audio.is-playing {
-      animation: glowAudio 1.5s infinite alternate;
-    }
-    #modal audio {
-      width: 94vw;
-      max-width: 540px;
-      margin: 20px auto 0 auto;
-      display: block;
-      height: 52px;
-      transform: scale(1.3);
-      transform-origin: top center;
-      border-radius: 10px;
-      outline: none;
+    #giftCloseBtn {
+      margin-top: 25px;
+      font-size: 1.1em;
+      padding: 10px 44px;
+      border-radius: 14px;
       border: none;
-    }
-    #closeBtn {
-      margin-top: 36px;
-      font-size: 1.5em;
-      padding: 14px 40px;
-      background: #f8d478;
-      color: #644c00;
-      border: none;
-      border-radius: 16px;
-      cursor: pointer;
+      background: linear-gradient(90deg, #ffe1f7 20%, #f9c1e4 100%);
+      color: #8e4585;
+      font-family: 'Quicksand', sans-serif;
       font-weight: bold;
-      display: inline-block;
-      letter-spacing: 0.5px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      box-shadow: 0 1px 10px #eabfff66, 0 0px 2px #8e458544;
+      cursor: pointer;
+      letter-spacing: 1.2px;
+      transition: background 0.2s, color 0.1s;
     }
-    #closeBtn:active {
-      background: #ffd86b;
+    #giftCloseBtn:active {
+      background: linear-gradient(90deg, #f9c1e4 40%, #ffe1f7 100%);
+      color: #f45aac;
+    }
+    /* Confetti canvas on top */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw !important;
+      height: 100vh !important;
+      z-index: 4000;
+      pointer-events: none;
+      display: none;
     }
     @media (max-width: 600px) {
-      .message-box { padding: 19px 2vw; border-radius: 14px;}
-      .message { font-size: 1.2em;}
-      #modal img { width: 97vw; max-width: 99vw; border-radius: 14px;}
-      #modal { padding: 3vw 0.5vw 3vw 0.5vw; border-radius: 16px;}
-      #getGiftBtn { font-size: 1.1em; padding: 12px 2vw; border-radius: 13px;}
-      #closeBtn { font-size: 1.2em; padding: 10px 20px; border-radius: 10px;}
-      #modal audio { width: 97vw; max-width: 99vw; transform: scale(1);}
-      #heartfeltModal { padding: 22px 2vw 16px 2vw; border-radius: 18px;}
-      #heartfeltMsgText { font-size: 1em;}
-      #nextBtn { font-size: 1em; padding: 9px 2vw;}
-    }
-    @media (max-width: 400px) {
-      .message { font-size: 1em;}
-      #getGiftBtn { font-size: 0.98em; padding: 9px 2vw; }
-      #closeBtn { font-size: 1em; padding: 9px 12px;}
-      #heartfeltMsgText { font-size: 0.89em;}
-      #nextBtn { font-size: 0.9em; padding: 6px 1vw;}
+      .message {
+        font-size: 1.19em;
+      }
+      #heartfeltMsgText {
+        font-size: 1.09em;
+      }
+      #giftModal, #heartfeltModal {
+        padding: 17vw 2vw 10vw 2vw;
+      }
     }
   </style>
 </head>
@@ -341,233 +271,136 @@
   <!-- Heartfelt Modal -->
   <div id="heartfeltModalBg">
     <div id="heartfeltModal">
-      <!-- Pink floating hearts and sparkles will be dynamically added by JS -->
       <div id="heartfeltMsgText"></div>
-      <span id="heartfeltHeart" style="display:none;">❤️</span>
+      <span id="heartfeltHeart">❤️</span>
       <br>
       <button id="nextBtn">Next</button>
     </div>
   </div>
 
-  <!-- Fireflies will be dynamically added by JS -->
-  <div class="message-box" style="display:none;">
-    <div class="message" id="message"></div>
-    <div class="signature" id="signature"></div>
-  </div>
-  <button id="getGiftBtn" style="display:none;">Click to get your birthday surprise 🎁</button>
+  <!-- Fireflies -->
+  <div id="fireflies"></div>
 
-  <!-- Modal Popup for Gift -->
-  <div id="modalBg">
-    <div id="modal">
-      <img src="AkkaMaa.jpg" alt="Happy Birthday Periya Valu Akka Maa">
-      <audio id="music" src="birthday.mp3" controls autoplay></audio>
+  <!-- Main Message Box -->
+  <div class="message-box" id="mainMsgBox">
+    <div class="message">
+      Happy Birthday My Periya Valu Akka Maa!<br>
       <br>
-      <button id="closeBtn">Close</button>
+      Wishing you a day as bright as your smile and a year as lovely as your heart.<br>
+      Missing you loads, and sending you all the hugs and love I have!<br>
+      <br>
+      Enjoy your special day, Akka Maa!<br>
+      <span style="font-size:1.7em;">🥳🎉✨</span>
+    </div>
+    <div class="signature">- with all love,<br>kutty valu</div>
+  </div>
+
+  <!-- Gift Button -->
+  <button id="getGiftBtn">Click to get your birthday surprise from kutty valu 🎁</button>
+
+  <!-- Gift Modal -->
+  <div id="giftModalBg">
+    <div id="giftModal">
+      <img id="giftImg" src="AkkaMaa.jpg" alt="Birthday Gift" />
+      <audio id="birthdayAudio" src="birthday.mp3"></audio>
+      <br>
+      <button id="giftCloseBtn">Close</button>
     </div>
   </div>
-  <!-- Confetti library -->
+  <canvas id="confetti-canvas"></canvas>
+
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // --- Pink Hearts and Sparkles for Modal ---
-    function spawnPinkHeartsAndSparkles() {
-      const modal = document.getElementById('heartfeltModal');
-      for (let i = 0; i < 13; i++) {
-        setTimeout(() => {
-          const type = Math.random() > 0.4 ? 'heart' : 'sparkle';
-          const el = document.createElement('div');
-          if (type === 'heart') {
-            el.className = 'pink-heart';
-            el.style.left = (10 + Math.random() * 80) + '%';
-            el.style.top = (60 + Math.random() * 22) + '%';
-            el.style.opacity = 0.45 + Math.random() * 0.45;
-            el.style.animationDuration = (2.5 + Math.random() * 2.9) + 's';
-          } else {
-            el.className = 'pink-sparkle';
-            el.style.left = (8 + Math.random() * 84) + '%';
-            el.style.top = (50 + Math.random() * 35) + '%';
-            el.style.width = el.style.height = (9 + Math.random()*10) + 'px';
-            el.style.background = 'radial-gradient(circle at 60% 30%, #fff2f9 60%, #f9ccd5 100%)';
-            el.style.borderRadius = '50%';
-            el.style.opacity = 0.25 + Math.random() * 0.55;
-            el.style.animationDuration = (1.7 + Math.random() * 2.5) + 's';
-            el.style.boxShadow = '0 2px 12px #f9ccd577, 0 0 25px #fff2f9bb';
-          }
-          modal.appendChild(el);
-          setTimeout(() => el.remove(), 3500 + Math.random()*2000);
-        }, i * 180);
-      }
-      setTimeout(spawnPinkHeartsAndSparkles, 2700);
-    }
-    spawnPinkHeartsAndSparkles();
+    // Heartfelt message to type out
+    const heartfeltMsg = `Akka maa,
+en life la unexpected aa vantha onna meet pannathuku apparam
+life romba beautiful aa maariruchu.
 
-    // --- Heartfelt Message Modal Typewriter ---
-    const heartfeltLines = [
-      "Happy Birthday Periya Valu Akka Maa!",
-      "Nee intha kutty valu ku romba romba special.",
-      "First akka and best akka forever.",
-      "",
-      "Thanks for made my life beautiful DM akka",
-      "Love you forever",
-      "From kutty valu"
-    ];
-    const heartfeltMsgEl = document.getElementById('heartfeltMsgText');
+Akka maa,
+inaiku un birthday naa pakathula illa,
+aana eppavum en heart la en akka oru special edathula iruka.
+Naa romba romba lucky nee akka va kadaichathuku. ❤️`;
+
+    // Typewriter effect for heartfelt modal
+    const heartfeltMsgText = document.getElementById('heartfeltMsgText');
     const heartfeltHeart = document.getElementById('heartfeltHeart');
-    const nextBtn = document.getElementById('nextBtn');
+    let char = 0;
 
-    function colourfulTypewriter(lines, el, delay = 46, nextLineDelay = 630, cb) {
-      let line = 0, char = 0;
-      function type() {
-        if (line < lines.length) {
-          if (char < lines[line].length) {
-            // For "special" words, wrap with .highlight
-            let charToAdd = lines[line][char];
-            if (lines[line].toLowerCase().includes('special') && char === lines[line].toLowerCase().indexOf('special')) {
-              el.innerHTML += `<span class="highlight">special</span>`;
-              char += 6;
-              setTimeout(type, delay + 80);
-              return;
-            }
-            el.innerHTML += charToAdd;
-            char++;
-            setTimeout(type, delay);
-          } else {
-            el.innerHTML += "<br>";
-            char = 0; line++;
-            setTimeout(type, nextLineDelay);
-          }
-        } else if(cb) {
-          cb();
-        }
-      }
-      type();
-    }
-
-    // Show heartfelt modal on load, hide rest
-    document.querySelector('.message-box').style.display = 'none';
-    document.getElementById('getGiftBtn').style.display = 'none';
-
-    window.onload = function() {
-      // Animate heartfelt message
-      colourfulTypewriter(heartfeltLines, heartfeltMsgEl, 46, 690, () => {
+    function typeWriter() {
+      if (char < heartfeltMsg.length) {
+        heartfeltMsgText.innerHTML += heartfeltMsg.charAt(char) === "\n" ? "<br>" : heartfeltMsg.charAt(char);
+        char++;
+        setTimeout(typeWriter, heartfeltMsg.charAt(char-1)==="\n"?130:38);
+      } else {
         heartfeltHeart.style.display = 'inline-block';
-        heartfeltHeart.animate([
-          { opacity: 0, transform: 'scale(0.7)' },
-          { opacity: 1, transform: 'scale(1.25)' },
-          { opacity: 1, transform: 'scale(1)' }
-        ], { duration: 700, fill: 'forwards' });
-        setTimeout(() => {
-          nextBtn.style.display = 'inline-block';
-          nextBtn.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 1200, fill: 'forwards' });
-        }, 700);
-      });
+      }
+    }
+    typeWriter();
+
+    // After heartfelt, show fireflies, main message, and gift button
+    document.getElementById('nextBtn').onclick = function() {
+      document.getElementById('heartfeltModalBg').style.display = 'none';
+      // Show fireflies
+      for(const ff of document.querySelectorAll('.firefly')) ff.style.display = '';
+      // Show main message and gift button
+      document.getElementById('mainMsgBox').style.display = '';
+      document.getElementById('getGiftBtn').style.display = '';
     };
 
-    // Transition from heartfelt modal to main intro
-    nextBtn.addEventListener('click', function() {
-      document.getElementById('heartfeltModalBg').style.display = 'none';
-      document.querySelector('.message-box').style.display = '';
-      document.getElementById('getGiftBtn').style.display = '';
-      // Animate main message and signature
-      typeWriter([
-        "Happy Birthday Periya Valu Akka Maa!",
-        "Nee intha kutty valu ku romba romba special.",
-        "First akka and best akka forever.",
-        "",
-        "Thanks for made my life beautiful DM akka",
-        "Love you forever",
-        "From kutty valu"
-      ], document.getElementById('message'));
-      document.getElementById('signature').innerHTML = "— Kutty Valu";
-    });
-
-    // --- Firefly background ---
-    function createFirefly() {
-      const firefly = document.createElement('div');
-      firefly.className = 'firefly';
-      const left = Math.random() * 100;
-      firefly.style.left = left + 'vw';
-      firefly.style.bottom = Math.random() * 30 + 'vh';
-      firefly.style.opacity = 0.5 + Math.random() * 0.4;
-      firefly.style.animationDuration = (8 + Math.random() * 7) + 's';
-      firefly.style.filter = `blur(${Math.random() * 2}px)`;
-      document.body.appendChild(firefly);
-      setTimeout(() => firefly.remove(), 15000);
+    // --- Fireflies code (initially hidden, appear after heartfelt) ---
+    function randomBetween(a, b) {
+      return a + Math.random() * (b - a);
     }
-    setInterval(createFirefly, 900);
-    for (let i = 0; i < 24; i++) createFirefly();
-
-    // --- Typewriter for Main Message ---
-    function typeWriter(lines, el, delay = 45, nextLineDelay = 600) {
-      let line = 0, char = 0;
-      el.innerHTML = "";
-      function type() {
-        if (line < lines.length) {
-          if (char < lines[line].length) {
-            let charToAdd = lines[line][char];
-            if (lines[line].toLowerCase().includes('special') && char === lines[line].toLowerCase().indexOf('special')) {
-              el.innerHTML += `<span class="highlight">special</span>`;
-              char += 6;
-              setTimeout(type, delay + 80);
-              return;
-            }
-            el.innerHTML += charToAdd;
-            char++;
-            setTimeout(type, delay);
-          } else {
-            el.innerHTML += "<br>";
-            char = 0; line++;
-            setTimeout(type, nextLineDelay);
-          }
-        }
-      }
-      type();
+    // Make 18 fireflies
+    for(let i=0; i<18; i++) {
+      let ff = document.createElement('div');
+      ff.className = 'firefly';
+      ff.style.left = randomBetween(5,95) + 'vw';
+      ff.style.top = randomBetween(15,88) + 'vh';
+      ff.style.animationDuration = randomBetween(7,13) + 's';
+      ff.style.animationDelay = randomBetween(0,9) + 's';
+      // Initially hidden, will be shown after heartfelt modal
+      ff.style.display = 'none';
+      document.getElementById('fireflies').appendChild(ff);
     }
 
-    // --- Modal logic (gift surprise) ---
-    const btn = document.getElementById('getGiftBtn');
-    const modalBg = document.getElementById('modalBg');
-    const music = document.getElementById('music');
-    const closeBtn = document.getElementById('closeBtn');
+    // Gift modal logic
+    const giftBtn = document.getElementById('getGiftBtn');
+    const giftModalBg = document.getElementById('giftModalBg');
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const birthdayAudio = document.getElementById('birthdayAudio');
 
-    btn.addEventListener('click', function() {
-      modalBg.style.display = 'flex';
-      // Confetti burst on modal open
-      confetti({
-        particleCount: 120,
-        spread: 85,
-        origin: { y: 0.7 }
+    giftBtn.onclick = function() {
+      giftModalBg.style.display = 'flex';
+      confettiCanvas.style.display = 'block';
+      // Play audio
+      birthdayAudio.currentTime = 0;
+      birthdayAudio.play();
+      // Confetti burst
+      confetti.create(confettiCanvas, { resize: true })({
+        particleCount: 170,
+        spread: 130,
+        origin: { y: 0.6 }
       });
-      music.currentTime = 0;
-      music.play();
-      btn.style.display = 'none';
-    });
-
-    function hideGift() {
-      modalBg.style.display = 'none';
-      music.pause();
-      music.currentTime = 0;
-      btn.style.display = 'block'; // Show the button again
-    }
-
-    closeBtn.addEventListener('click', hideGift);
-
-    // Allow closing modal by tapping outside (mobile-friendly)
-    modalBg.addEventListener('click', function(e) {
-      if (e.target === modalBg) {
-        hideGift();
-      }
-    });
-
-    // Animate audio player while playing
-    music.addEventListener('play', function() {
-      music.classList.add('is-playing');
-    });
-    music.addEventListener('pause', function() {
-      music.classList.remove('is-playing');
-    });
-    if (!music.paused) {
-      music.classList.add('is-playing');
-    }
+      // Fade out main stuff
+      document.getElementById('mainMsgBox').style.opacity = 0.28;
+      giftBtn.style.opacity = 0.18;
+      giftBtn.disabled = true;
+    };
+    // Close gift modal
+    document.getElementById('giftCloseBtn').onclick = function() {
+      giftModalBg.style.display = 'none';
+      confettiCanvas.style.display = 'none';
+      birthdayAudio.pause();
+      // Restore
+      document.getElementById('mainMsgBox').style.opacity = 1;
+      giftBtn.style.opacity = 1;
+      giftBtn.disabled = false;
+    };
+    // Click outside modal closes
+    giftModalBg.onclick = function(e) {
+      if(e.target===giftModalBg) document.getElementById('giftCloseBtn').onclick();
+    };
   </script>
 </body>
 </html>
